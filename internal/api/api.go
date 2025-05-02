@@ -1,6 +1,7 @@
 package api
 
 import (
+	"encurtador-links/internal/store"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -12,7 +13,7 @@ type apiResponse struct {
 	Data  any    `json:"data,omitempty"`
 }
 
-func NewHandler() http.Handler {
+func NewHandler(store store.Store) http.Handler {
 
 	r := chi.NewMux()
 
