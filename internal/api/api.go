@@ -22,6 +22,7 @@ func NewHandler(store store.Store) http.Handler {
 	r.Use(middleware.Logger)
 
 	r.Post("/api/shorten", handleShortenURL(store))
+	r.Get("/api/{code}", handleGetShortenedURL(store))
 
 	return r
 
